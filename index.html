@@ -18,23 +18,17 @@
       --shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.12);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       padding: 32px 16px;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #eef2ff 0, #f4f5fb 52%, #f9fafb 100%);
       color: var(--text-main);
     }
 
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    .page { max-width: 900px; margin: 0 auto; }
 
     .card {
       background: var(--card-bg);
@@ -51,9 +45,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(circle at top right,
-        rgba(79, 70, 229, 0.08),
-        transparent 60%);
+      background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.08), transparent 60%);
       opacity: 0.75;
     }
 
@@ -91,12 +83,9 @@
       z-index: 1;
     }
 
-    h1 span {
-      color: #0f172a;
-    }
-.title-accent {
-  color: #0f172a;
-}
+    h1 span { color: #0f172a; }
+
+    .title-accent { color: #0f172a; }
 
     .subtitle {
       font-size: 15px;
@@ -121,10 +110,6 @@
       z-index: 1;
     }
 
-    .highlight-pill span.icon {
-      font-size: 18px;
-    }
-
     .content-layout {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
@@ -134,34 +119,15 @@
     }
 
     @media (max-width: 800px) {
-      body {
-        padding: 20px 12px;
-      }
-      .card {
-        padding: 24px 20px 22px;
-      }
-      .content-layout {
-        grid-template-columns: 1fr;
-      }
+      body { padding: 20px 12px; }
+      .card { padding: 24px 20px 22px; }
+      .content-layout { grid-template-columns: 1fr; }
     }
 
-    h2 {
-      font-size: 18px;
-      margin: 0 0 10px;
-      color: #0f172a;
-    }
+    h2 { font-size: 18px; margin: 0 0 10px; color: #0f172a; }
+    h3 { font-size: 15px; margin: 0 0 8px; color: #111827; }
 
-    h3 {
-      font-size: 15px;
-      margin: 0 0 8px;
-      color: #111827;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0 0 10px;
-    }
+    p { font-size: 14px; line-height: 1.6; margin: 0 0 10px; }
 
     .section {
       padding: 16px 0;
@@ -184,9 +150,7 @@
     }
 
     @media (max-width: 600px) {
-      .list-grid {
-        grid-template-columns: 1fr;
-      }
+      .list-grid { grid-template-columns: 1fr; }
     }
 
     .list-grid li::before {
@@ -197,15 +161,8 @@
       margin-left: -0.8em;
     }
 
-    .link {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .link:hover {
-      text-decoration: underline;
-    }
+    .link { color: var(--primary); text-decoration: none; font-weight: 500; }
+    .link:hover { text-decoration: underline; }
 
     .quote {
       margin: 8px 0 2px;
@@ -229,12 +186,6 @@
       background: rgba(248, 250, 252, 0.9);
       color: #4b5563;
       white-space: nowrap;
-    }
-
-    .note {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 6px;
     }
 
     .sidebar-card {
@@ -268,36 +219,78 @@
       font-size: 13px;
       color: #e5e7eb;
     }
-/* Brighten ONLY the footer block inside the right sidebar */
-.sidebar-card .footer-signoff,
-.sidebar-card .footer-signoff p {
-  color: #ffffff;
-}
 
-.sidebar-card .footer-signoff a {
-  color: #ffffff;
-  font-weight: 500;
-  text-decoration: none;
-  opacity: 0.95;
-}
+    /* === NEW: Website mini-card (Right column) === */
+    .website-card {
+      margin: 12px 0 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(6px);
+    }
 
-.sidebar-card .footer-signoff a:hover {
-  text-decoration: underline;
-  opacity: 1;
-}
+    .website-icon {
+      font-size: 18px;
+      line-height: 1;
+      color: #ffffff;
+    }
 
-.sidebar-card .tiny-footer {
-  color: #ffffff;
-  opacity: 0.9;
-}
+    .website-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .website-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .website-text a {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-word;
+    }
+
+    .website-text a:hover {
+      opacity: 0.95;
+    }
+
+    /* Brighten ONLY the footer block inside the right sidebar */
+    .sidebar-card .footer-signoff,
+    .sidebar-card .footer-signoff p { color: #ffffff; }
+
+    .sidebar-card .footer-signoff a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+    }
+
+    .sidebar-card .footer-signoff a:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+
+    .sidebar-card .tiny-footer { color: #ffffff; opacity: 0.9; }
 
     .sidebar-label {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.09em;
-      color: #bfdbfe;
+      color: rgba(255, 255, 255, 0.9);
       margin-bottom: 4px;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .cta-chip {
@@ -311,9 +304,7 @@
       font-size: 12px;
     }
 
-    .cta-chip span.icon {
-      font-size: 15px;
-    }
+    .cta-chip span.icon { font-size: 15px; }
 
     .contact-block {
       margin-top: 14px;
@@ -323,18 +314,14 @@
       font-size: 12px;
     }
 
-    .contact-block strong {
-      color: #e5e7eb;
-    }
+    .contact-block strong { color: #e5e7eb; }
 
-    .contact-row {
-      margin: 3px 0;
-    }
+    .contact-row { margin: 3px 0; }
 
     .contact-row span.label {
       display: inline-block;
       width: 48px;
-      color: #9ca3af;
+      color: #cbd5e1;
     }
 
     .contact-row a {
@@ -342,27 +329,22 @@
       text-decoration: none;
     }
 
-    .contact-row a:hover {
-      text-decoration: underline;
-    }
+    .contact-row a:hover { text-decoration: underline; }
 
     .contact-block small {
       display: block;
       margin-top: 8px;
-      color: #9ca3af;
+      color: #cbd5e1;
       font-size: 11px;
     }
 
-.footer-signoff {
-  margin-top: 18px;
-  font-size: 12.5px;
-  color: #ffffff;
-}
-
-
-    .footer-signoff strong {
-      color: #f9fafb;
+    .footer-signoff {
+      margin-top: 18px;
+      font-size: 12.5px;
+      color: #ffffff;
     }
+
+    .footer-signoff strong { color: #f9fafb; }
 
     .footer-signoff p {
       margin: 0 0 3px;
@@ -372,21 +354,11 @@
     .tiny-footer {
       margin-top: 10px;
       font-size: 10.5px;
-      color: #9ca3af;
+      color: #ffffff;
+      opacity: 0.9;
     }
 
-    .tiny-footer a {
-      color: #bfdbfe;
-      text-decoration: none;
-    }
-
-    .tiny-footer a:hover {
-      text-decoration: underline;
-    }
-
-    .spacer {
-      height: 10px;
-    }
+    .spacer { height: 10px; }
 
     .ferry-card {
       margin-top: 16px;
@@ -404,16 +376,11 @@
       margin-bottom: 6px;
     }
 
-    .ferry-card-header span.icon {
-      font-size: 17px;
-    }
-
-    .ferry-card-header strong {
-      font-size: 13px;
-      color: #111827;
-    }
+    .ferry-card-header span.icon { font-size: 17px; }
+    .ferry-card-header strong { font-size: 13px; color: #111827; }
   </style>
 </head>
+
 <body>
   <div class="page">
     <div class="card">
@@ -423,10 +390,8 @@
       </div>
 
       <h1>
-  <span class="title-accent">Welcome to</span> the
-  Boundless Life Community<span> in Greece!</span>
-</h1>
-
+        <span class="title-accent">Welcome to</span> the
+        Boundless Life Community<span> in Greece!</span>
       </h1>
 
       <p class="subtitle">
@@ -445,7 +410,6 @@
       <div class="content-layout">
         <!-- LEFT COLUMN -->
         <div>
-          <!-- What you can discover -->
           <section class="section">
             <h2>What you can discover &amp; book</h2>
             <p>
@@ -481,7 +445,6 @@
             </p>
           </section>
 
-          <!-- Why we’re different -->
           <section class="section">
             <h2>Why the ValuePass Experiences platform is different</h2>
             <p>
@@ -490,23 +453,17 @@
               with limited options.
             </p>
 
-            <p>
-             <strong>We’re creating a new category, and that difference matters because it means:</strong>
-           </p>
+            <p><strong>We’re creating a new category, and that difference matters because it means:</strong></p>
 
-           <p class="quote">
-            <strong>Less research time, better decision making, smarter spending.</strong>
-          </p>
-
+            <p class="quote">
+              <strong>Less research time, better decision making, smarter spending.</strong>
+            </p>
           </section>
 
-          <!-- Concierge -->
           <section class="section">
             <h2>Need something personalized?</h2>
             <h3>Especially for the Boundless Life Community</h3>
-            <p>
-              Our 24/7 Customer Care &amp; Concierge Team is here to elevate your trip.
-            </p>
+            <p>Our 24/7 Customer Care &amp; Concierge Team is here to elevate your trip.</p>
             <p>
               Need a custom itinerary? Insider recommendations? More destinations &amp; options?
               Last-minute help? We’ve got you covered — anytime.
@@ -519,7 +476,6 @@
             </div>
           </section>
 
-          <!-- Ferries -->
           <section class="section">
             <div class="ferry-card">
               <div class="ferry-card-header">
@@ -538,18 +494,28 @@
           </section>
         </div>
 
-        <!-- RIGHT COLUMN / CONTACTS -->
+        <!-- RIGHT COLUMN -->
         <aside>
           <div class="sidebar-card">
             <div class="sidebar-label">Your local experiences partner</div>
             <h2>ValuePass Experiences</h2>
+
             <p>
               From Athens to Syros and beyond, we’re here to help you experience Greece in an enjoyable,
               meaningful, and truly unforgettable way.
             </p>
 
+            <!-- NEW WEBSITE BLOCK (Right column) -->
+            <div class="website-card">
+              <span class="website-icon" aria-hidden="true">🌐</span>
+              <div class="website-text">
+                <span class="website-label">Visit our website</span>
+                <a href="https://www.valuepass.gr" target="_blank" rel="noreferrer">www.valuepass.gr</a>
+              </div>
+            </div>
+
             <div class="cta-chip">
-              <span class="icon">💬</span>
+              <span class="icon" aria-hidden="true">💬</span>
               <span>24/7 Customer Care &amp; Concierge</span>
             </div>
 
@@ -569,9 +535,7 @@
                 <a href="tel:+306931451910">+30 6931 451910</a>
               </div>
 
-              <small>
-                Human-supported CustomerCare &amp; WhatsApp / Viber support.
-              </small>
+              <small>Human-supported CustomerCare &amp; WhatsApp / Viber support.</small>
             </div>
 
             <div class="footer-signoff">
@@ -586,7 +550,7 @@
                 <a href="tel:+302108060622">+30 210 8060622</a>
               </p>
               <p>
-               <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">MB.</span>
+                <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">MB.</span>
                 <a href="tel:+306936123280">+30 6936 123280</a>
               </p>
               <p>
@@ -594,16 +558,15 @@
                 <a href="mailto:ppanos@valuepass.gr">ppanos@valuepass.gr</a>
               </p>
               <p>
-             <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">W.</span>
-                <a href="https://www.valuepass.gr" target="_blank" rel="noreferrer">
-                  www.valuepass.gr
-                </a>
+                <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">W.</span>
+                <a href="https://www.valuepass.gr" target="_blank" rel="noreferrer">www.valuepass.gr</a>
               </p>
 
               <div class="tiny-footer">
                 Prepared for the <strong>Boundless Life</strong> community in Greece.
               </div>
             </div>
+
           </div>
         </aside>
       </div>
@@ -611,11 +574,3 @@
   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
