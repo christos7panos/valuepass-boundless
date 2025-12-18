@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Welcome to the Greece Boundless Life Community</title>
+  <title>Welcome to Greece – Boundless Life Families</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -14,8 +14,12 @@
       --text-muted: #6b7280;
       --accent-soft: #e5edff;
       --border-soft: #e2e8f0;
-      --radius-lg: 18px;
       --shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.12);
+
+      --vp: #FE6244;
+      --vp2: #ff7c5c;
+      --vp3: #ffa08a;
+      --vp-dark: #e14f36;
     }
 
     * { box-sizing: border-box; }
@@ -84,16 +88,15 @@
     }
 
     h1 span { color: #0f172a; }
-
     .title-accent { color: #0f172a; }
 
     .subtitle {
       font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       position: relative;
       z-index: 1;
-      max-width: 640px;
+      max-width: 680px;
     }
 
     .highlight-pill {
@@ -134,10 +137,7 @@
       border-bottom: 1px dashed var(--border-soft);
     }
 
-    .section:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
+    .section:last-child { border-bottom: none; padding-bottom: 0; }
 
     .list-grid {
       display: grid;
@@ -161,38 +161,33 @@
       margin-left: -0.8em;
     }
 
-    .link { color: var(--primary); text-decoration: none; font-weight: 500; }
-    .link:hover { text-decoration: underline; }
-
-    .quote {
-      margin: 8px 0 2px;
-      font-size: 13px;
-      font-style: italic;
-      color: var(--text-muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 10px 0 4px;
-    }
-
-    .pill {
+    .note {
       font-size: 12px;
-      padding: 5px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(248, 250, 252, 0.9);
-      color: #4b5563;
-      white-space: nowrap;
+      color: var(--text-muted);
+      margin-top: 6px;
     }
 
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(226,232,240,0.75);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* RIGHT SIDEBAR */
     .sidebar-card {
-      background: linear-gradient(135deg, #FE6244 0%, #ff7c5c 50%, #ffa08a 100%);
+      background: linear-gradient(135deg, var(--vp) 0%, var(--vp2) 50%, var(--vp3) 100%);
       border-radius: 20px;
       padding: 18px 18px 16px;
-      color: #e5e7eb;
+      color: #ffffff;
       position: relative;
       overflow: hidden;
     }
@@ -207,20 +202,37 @@
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.35);
       opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .sidebar-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 4px;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
     }
 
     .sidebar-card h2 {
-      color: #f9fafb;
+      color: #ffffff;
       font-size: 17px;
-      margin-bottom: 4px;
+      margin: 0 0 6px;
+      position: relative;
+      z-index: 1;
     }
 
     .sidebar-card p {
       font-size: 13px;
-      color: #e5e7eb;
+      color: rgba(255,255,255,0.95);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 10px;
     }
 
-    /* === NEW: Website mini-card (Right column) === */
+    /* Website block */
     .website-card {
       margin: 12px 0 10px;
       padding: 10px 12px;
@@ -230,13 +242,21 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      position: relative;
+      z-index: 1;
       backdrop-filter: blur(6px);
     }
 
     .website-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(15, 23, 42, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       font-size: 18px;
-      line-height: 1;
-      color: #ffffff;
+      flex: 0 0 auto;
     }
 
     .website-text {
@@ -249,48 +269,47 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 700;
       margin-bottom: 2px;
-      font-weight: 600;
     }
 
     .website-text a {
       color: #ffffff;
-      font-weight: 700;
+      font-weight: 800;
       text-decoration: underline;
       text-underline-offset: 3px;
       word-break: break-word;
     }
 
-    .website-text a:hover {
-      opacity: 0.95;
-    }
-
-    /* Brighten ONLY the footer block inside the right sidebar */
-    .sidebar-card .footer-signoff,
-    .sidebar-card .footer-signoff p { color: #ffffff; }
-
-    .sidebar-card .footer-signoff a {
-      color: #ffffff;
-      font-weight: 500;
+    /* NEW CTA BUTTON */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin: 10px 0 6px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #0f172a;
+      font-weight: 800;
       text-decoration: none;
-      opacity: 0.95;
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+      position: relative;
+      z-index: 1;
+      transition: transform 0.12s ease, opacity 0.12s ease;
     }
 
-    .sidebar-card .footer-signoff a:hover {
-      text-decoration: underline;
-      opacity: 1;
+    .cta-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.98;
     }
 
-    .sidebar-card .tiny-footer { color: #ffffff; opacity: 0.9; }
-
-    .sidebar-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 4px;
-      font-weight: 600;
+    .cta-button span.arrow {
+      font-weight: 900;
     }
 
     .cta-chip {
@@ -302,9 +321,10 @@
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.5);
       font-size: 12px;
+      position: relative;
+      z-index: 1;
+      font-weight: 700;
     }
-
-    .cta-chip span.icon { font-size: 15px; }
 
     .contact-block {
       margin-top: 14px;
@@ -312,21 +332,16 @@
       background: rgba(15, 23, 42, 0.65);
       padding: 12px 11px 10px;
       font-size: 12px;
+      position: relative;
+      z-index: 1;
     }
-
-    .contact-block strong { color: #e5e7eb; }
 
     .contact-row { margin: 3px 0; }
-
-    .contact-row span.label {
-      display: inline-block;
-      width: 48px;
-      color: #cbd5e1;
-    }
 
     .contact-row a {
       color: #e0ecff;
       text-decoration: none;
+      font-weight: 600;
     }
 
     .contact-row a:hover { text-decoration: underline; }
@@ -334,170 +349,157 @@
     .contact-block small {
       display: block;
       margin-top: 8px;
-      color: #cbd5e1;
+      color: rgba(255,255,255,0.82);
       font-size: 11px;
     }
 
     .footer-signoff {
-      margin-top: 18px;
-      font-size: 12.5px;
-      color: #ffffff;
-    }
-
-    .footer-signoff strong { color: #f9fafb; }
-
-    .footer-signoff p {
-      margin: 0 0 3px;
+      margin-top: 14px;
       font-size: 12px;
+      color: rgba(255,255,255,0.95);
+      position: relative;
+      z-index: 1;
     }
+
+    .footer-signoff p { margin: 0 0 3px; font-size: 12px; }
 
     .tiny-footer {
       margin-top: 10px;
-      font-size: 10.5px;
-      color: #ffffff;
-      opacity: 0.9;
+      font-size: 11px;
+      color: rgba(255,255,255,0.9);
     }
-
-    .spacer { height: 10px; }
-
-    .ferry-card {
-      margin-top: 16px;
-      padding: 14px 12px 12px;
-      border-radius: 14px;
-      background: rgba(248, 250, 252, 0.95);
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      font-size: 13px;
-    }
-
-    .ferry-card-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .ferry-card-header span.icon { font-size: 17px; }
-    .ferry-card-header strong { font-size: 13px; color: #111827; }
   </style>
 </head>
 
 <body>
   <div class="page">
     <div class="card">
+
       <div class="badge">
         <span class="badge-dot"></span>
         Greece · Boundless Life Community
       </div>
 
       <h1>
-        <span class="title-accent">Welcome to</span> the
-        Boundless Life Community<span> in Greece!</span>
+        <span class="title-accent">Welcome to Greece,</span> Boundless Life Families
       </h1>
 
       <p class="subtitle">
-        Hello! I’m Panayiotis, founder of ValuePass Experiences, and I’m so happy to welcome you to Greece.
-        We’re proud to be an outsourced partner of Boundless Life, supporting you from the moment you arrive
-        in Greece and your home for the season, Syros.
+        ValuePass Experiences is your local partner for experiences and services across Greece, supporting you
+        throughout your stay and whenever you explore beyond Syros.
       </p>
 
       <div class="highlight-pill">
         <span>
-          Our mission: to make your explorations truly unforgettable while sharing the Greek spirit of
-          “<strong>Philoxenia</strong>”.
+          Our mission is simple: to make exploring Greece effortless, authentic, and truly unforgettable,
+          guided by the Greek spirit of “<strong>Philoxenia</strong>”.
         </span>
       </div>
 
       <div class="content-layout">
         <!-- LEFT COLUMN -->
         <div>
+
           <section class="section">
-            <h2>What you can discover &amp; book</h2>
+            <div class="tag">What we do</div>
+            <h2>What is ValuePass Experiences?</h2>
             <p>
-              Whether through our platform (instant bookings) or our concierge service (personalized
-              recommendations), you’ll have access to a curated selection of top-rated experiential activities
-              and essential local services:
+              I’m Panayiotis Panos, founder of ValuePass Experiences.
+              As a trusted partner of Boundless Life, we support families and digital nomads with curated local
+              experiences and essential services across Greece, without endless searching or uncertainty.
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="tag">Why it matters to you</div>
+            <h2>Why choose ValuePass?</h2>
+            <p><strong>We’re not another overwhelming marketplace.</strong></p>
+            <p><strong>We’re your experience layer throughout Greece.</strong></p>
+
+            <p><strong>We’re creating a smarter way to explore, which means:</strong></p>
+
+            <ul class="list-grid">
+              <li><strong>Less research time</strong> → less planning stress</li>
+              <li><strong>Better decisions</strong> → only top-rated local partners</li>
+              <li><strong>Smarter spending</strong> → exclusive benefits on selected experiences</li>
+              <li><strong>Human support</strong>, whenever you need it</li>
+            </ul>
+
+            <p class="note">
+              All backed by our <strong>24/7 Customer Care &amp; Concierge Team</strong>.
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="tag">When to use ValuePass</div>
+            <h2>Use ValuePass whenever you want to explore beyond Syros</h2>
+            <p>
+              Whether it’s a short getaway, a weekend escape, or a longer trip across Greece,
+              ValuePass is here when you’re ready to explore.
             </p>
 
             <ul class="list-grid">
-              <li>Private or semi-private tours</li>
-              <li>Authentic experiences</li>
+              <li>When planning trips outside Syros</li>
+              <li>When you want reliable local recommendations</li>
+              <li>When plans change or you need last-minute help</li>
+              <li>When you want everything handled simply, in one place</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <div class="tag">What you can discover &amp; book</div>
+            <h2>Experiences &amp; services available through ValuePass</h2>
+
+            <p>Through our platform, you’ll find a curated selection of:</p>
+
+            <ul class="list-grid">
+              <li>Private &amp; semi-private tours</li>
+              <li>Authentic local experiences</li>
               <li>Cultural landmarks &amp; sightseeing</li>
-              <li>Great dining options</li>
+              <li>Dining &amp; food experiences</li>
               <li>Private transfers</li>
-              <li>Sea activities &amp; day boat tours</li>
+              <li>Sea activities &amp; boat trips</li>
               <li>Outdoor adventures</li>
-              <li>Creative workshops</li>
-              <li>Wellness options</li>
-              <li>Car or boat rentals</li>
+              <li>Creative &amp; wellness experiences</li>
+              <li>Car &amp; boat rentals</li>
               <li>Multi-day excursions</li>
             </ul>
 
-            <p>
-              Everything is tailored to your arrival time, preferences, and budget —
-              plus an exclusive Boundless Life Community discount.
-            </p>
-
-            <p>
-              🌐 Start exploring:
-              <a class="link" href="https://www.valuepass.gr" target="_blank" rel="noreferrer">
-                www.valuepass.gr
-              </a>
+            <p class="note">
+              Plus, exclusive <strong>Boundless Life Community benefits</strong> on selected experiences.
             </p>
           </section>
 
           <section class="section">
-            <h2>Why the ValuePass Experiences platform is different</h2>
+            <div class="tag">Personalized concierge</div>
+            <h2>Especially for the Boundless Life Community</h2>
+            <p><strong>Need something tailored?</strong> Our 24/7 Customer Care &amp; Concierge Team is here to help.</p>
             <p>
-              We’re redefining experiential travel through a connected-experience platform —
-              not a marketplace, not an overwhelming OTA, and not a traditional travel agency
-              with limited options.
-            </p>
-
-            <p><strong>We’re creating a new category, and that difference matters because it means:</strong></p>
-
-            <p class="quote">
-              <strong>Less research time, better decision making, smarter spending.</strong>
+              From custom itineraries and insider recommendations to additional destinations or last-minute changes —
+              just reach out and we’ll take care of it.
             </p>
           </section>
 
           <section class="section">
-            <h2>Need something personalized?</h2>
-            <h3>Especially for the Boundless Life Community</h3>
-            <p>Our 24/7 Customer Care &amp; Concierge Team is here to elevate your trip.</p>
+            <div class="tag">Traveling by ferry?</div>
+            <h2>Onboard access via Attica Group Ferries ⛴️</h2>
             <p>
-              Need a custom itinerary? Insider recommendations? More destinations &amp; options?
-              Last-minute help? We’ve got you covered — anytime.
+              ValuePass Experiences is available on the onboard Wi-Fi @sea portal of Attica Group Ferries
+              (Blue Star Ferries, Hellenic Seaways, SuperFast Ferries, ANEK).
             </p>
-            <div class="pill-row">
-              <span class="pill">Tailor-made itineraries</span>
-              <span class="pill">Local insights</span>
-              <span class="pill">Last-minute support</span>
-              <span class="pill">Family-friendly ideas</span>
-            </div>
+            <p>
+              Connect to the onboard Wi-Fi, open the @sea portal, and find the
+              <strong>ValuePass Experiences</strong> tile to discover and book experiences,
+              even offline while you sail.
+            </p>
           </section>
 
-          <section class="section">
-            <div class="ferry-card">
-              <div class="ferry-card-header">
-                <span class="icon">⛴️</span>
-                <strong>Traveling by ferry?</strong>
-              </div>
-              <p>
-                ValuePass Experiences is also available on the onboard Wi-Fi portal of Attica Group Ferries
-                (Blue Star Ferries, Hellenic Seaways, SuperFast Ferries, ANEK).
-              </p>
-              <p>
-                Look for the <strong>ValuePass Experiences</strong> tile in the onboard
-                <strong>Wi-Fi @sea</strong> portal to discover and book — even offline.
-              </p>
-            </div>
-          </section>
         </div>
 
         <!-- RIGHT COLUMN -->
         <aside>
           <div class="sidebar-card">
-            <div class="sidebar-label">Your local experiences partner</div>
+            <div class="sidebar-label">Your local experiences partner in Greece</div>
             <h2>ValuePass Experiences</h2>
 
             <p>
@@ -505,70 +507,58 @@
               meaningful, and truly unforgettable way.
             </p>
 
-            <!-- NEW WEBSITE BLOCK (Right column) -->
             <div class="website-card">
-              <span class="website-icon" aria-hidden="true">🌐</span>
+              <div class="website-icon" aria-hidden="true">🌐</div>
               <div class="website-text">
-                <span class="website-label">Visit our website</span>
-                <a href="https://www.valuepass.gr" target="_blank" rel="noreferrer">www.valuepass.gr</a>
+                <span class="website-label">Explore Greece with ValuePass</span>
+                <a href="https://www.valuepass.gr" target="_blank" rel="noreferrer">
+                  www.valuepass.gr ↗
+                </a>
               </div>
             </div>
 
+            <!-- CTA BUTTON -->
+            <a class="cta-button" href="https://www.valuepass.gr" target="_blank" rel="noreferrer">
+              Open ValuePass <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
             <div class="cta-chip">
-              <span class="icon" aria-hidden="true">💬</span>
-              <span>24/7 Customer Care &amp; Concierge</span>
+              <span aria-hidden="true">💬</span>
+              <span>24/7 Customer Care &amp; Concierge Service</span>
             </div>
 
             <div class="contact-block">
-              <strong>Concierge &amp; Customer Care</strong>
+              <strong>Customer Care</strong>
+
               <div class="contact-row">
-                <span class="label">Email</span>
+                <span>📧</span>
                 <a href="mailto:customercare@valuepass.gr">customercare@valuepass.gr</a>
               </div>
+
               <div class="contact-row">
-                <span class="label">Phone</span>
-                <a href="tel:+306931451910">+30 6931 451910</a>
-              </div>
-              <div class="contact-row">
-                <span class="label">Apps</span>
-                WhatsApp / Viber:
+                <span>📞</span>
                 <a href="tel:+306931451910">+30 6931 451910</a>
               </div>
 
-              <small>Human-supported CustomerCare &amp; WhatsApp / Viber support.</small>
+              <div class="contact-row">
+                <span>📲</span>
+                <a href="tel:+306931451910">WhatsApp / Viber: +30 6931 451910</a>
+              </div>
+
+              <small>(Human-supported, always)</small>
             </div>
 
             <div class="footer-signoff">
-              <p>Warm wishes,</p>
               <p><strong>Panayiotis Panos</strong></p>
               <p>Founder, ValuePass Experiences</p>
 
-              <p class="spacer"></p>
-
-              <p>
-                <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">T.</span>
-                <a href="tel:+302108060622">+30 210 8060622</a>
-              </p>
-              <p>
-                <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">MB.</span>
-                <a href="tel:+306936123280">+30 6936 123280</a>
-              </p>
-              <p>
-                <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">@.</span>
-                <a href="mailto:ppanos@valuepass.gr">ppanos@valuepass.gr</a>
-              </p>
-              <p>
-                <span style="display:inline-block;width:32px;color:#ffffff;font-weight:600;">W.</span>
-                <a href="https://www.valuepass.gr" target="_blank" rel="noreferrer">www.valuepass.gr</a>
-              </p>
-
               <div class="tiny-footer">
-                Prepared for the <strong>Boundless Life</strong> community in Greece.
+                Prepared especially for the <strong>Boundless Life</strong> Community in Greece.
               </div>
             </div>
-
           </div>
         </aside>
+
       </div>
     </div>
   </div>
